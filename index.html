@@ -47,6 +47,42 @@
                 color: #fff;
             }
         </style>
+
+<script>
+    document.getElementById("yesButton").addEventListener("click", showAlert);
+
+    function showAlert() {
+        alert("I love you! See you soon <3");
+    }
+
+    const yesButton = document.getElementById("yesButton");
+    const no = document.getElementById("no");
+    const valentineImage = document.getElementById("valentineImage");
+
+    const noTexts = ["Are you sure?", "Please give me a chance pookie", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry"];
+    const imageSources = ["https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg", "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU", "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg"];
+
+    no.addEventListener("click", change);
+
+    function change() {
+        const randomIndex = Math.floor(Math.random() * noTexts.length);
+        const randomText = noTexts[randomIndex];
+        no.innerText = randomText;
+
+        const i = Math.floor(Math.random() * 1000) + 1;
+        const j = Math.floor(Math.random() * 700) + 1;
+        no.style.left = i + "px";
+        no.style.top = j + "px";
+
+        const currentWidth = yesButton.offsetWidth;
+        const currentHeight = yesButton.offsetHeight
+        yesButton.style.width = currentWidth + 30 + "px";
+        yesButton.style.height = currentHeight + 10 + "px";
+
+        const randomImageIndex = Math.floor(Math.random() * imageSources.length);
+        valentineImage.src = imageSources[randomImageIndex];
+    }
+</script>
        
     </body>
 </html>
